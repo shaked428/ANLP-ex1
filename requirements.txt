@@ -1,0 +1,4 @@
+transformers==4.51.3
+datasets==3.5.1
+wandb==0.19.10
+evaluate==0.4.3
