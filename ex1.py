@@ -47,8 +47,8 @@ dataset = load_dataset("glue", "mrpc")
 model_name = "bert-base-uncased"
 wandb_name = f"{model_name}_lr_{train_args_cli.lr}_epoch_{train_args_cli.num_train_epochs}_batch_size_{train_args_cli.batch_size}"
 
-#wandb.login()
-#wandb.init(project="bert-mrpc", name=wandb_name)
+wandb.login()
+wandb.init(project="bert-mrpc", name=wandb_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=2)
 data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
@@ -153,5 +153,5 @@ if (train_args_cli.do_predict):
             line = f"{sentence1}###{sentence2}###{label}\n"
             f.write(line)
 
-#wandb.finish()
+wandb.finish()
 
